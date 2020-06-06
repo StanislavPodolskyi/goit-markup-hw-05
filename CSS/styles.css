@@ -910,8 +910,12 @@ button:focus {
 
 .product {
   position: relative;
-}
 
+  width: 370px;
+  height: 286.25px;
+
+  overflow: hidden;
+}
 
 .portfolio-item-description {
   font-style: normal;
@@ -922,13 +926,21 @@ button:focus {
   color: #ffffff;
   background-color: rgba(33, 150, 243, 0.9);
 
-  justify-content: center;
   margin: 0;
   padding: 63px 24px 63px 24px;
 
   position: absolute;
   top: 0;
-  left: 0;  
+  left: 0;
+  
+  opacity: 0;
+
+  transform: translateY(100%);
+  
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 1000ms;
 }
 
 .portfolio-item-job {
@@ -944,8 +956,15 @@ button:focus {
   color: var(--primary-text-color);
 }
 
+.portfolio-list li:hover .portfolio-item-description,
+.portfolio-list:focus .portfolio-item-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .portfolio-list li:hover,
 .portfolio-list:focus {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
+  
 }
 
